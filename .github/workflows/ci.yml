@@ -2,13 +2,11 @@
 name: react-native mobile ci
 
 on:
-  # Scan changed files in PRs (diff-aware scanning):
-  pull_request: {}
-  # Scan on-demand through GitHub Actions interface:
-  workflow_dispatch: {}
-  # Scan mainline branches and report all findings:
-  push:
-    branches: ["master", "main", 'dev']
+  workflow_call:
+    inputs:
+      project_name:
+        type: string
+        default: "sg-ci"
 
 jobs:
   sast:
